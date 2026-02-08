@@ -1,0 +1,23 @@
+import 'package:dio/dio.dart';
+
+class DioClient {
+  final Dio dio;
+
+  DioClient({required String baseUrl}) : dio = Dio(BaseOptions(baseUrl: baseUrl));
+
+  Future<Response> get(String path, {Map<String, dynamic>? queryParams}) async {
+    return await dio.get(path, queryParameters: queryParams);
+  }
+
+  Future<Response> post(String path, {Map<String, dynamic>? data}) async {
+    return await dio.post(path, data: data);
+  }
+
+  Future<Response> put(String path, {Map<String, dynamic>? data}) async {
+    return await dio.put(path, data: data);
+  }
+
+  Future<Response> delete(String path) async {
+    return await dio.delete(path);
+  }
+}
